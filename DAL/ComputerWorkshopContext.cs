@@ -26,63 +26,63 @@ namespace DAL
             
             var comp1 = new Computer
             {
-                Name = "Sample PC", Model = "abc-123", OwnerId = 1
+                Name = "Sample PC", Model = "abc-123", OwnerId = 1, Id = 1
             };
             var comp2 = new Computer
             {
-                Name = "Sample PC", Model = "abc-124", OwnerId = 2
+                Name = "Sample PC", Model = "abc-124", OwnerId = 2, Id = 2
             };
             var ord1 = new Order
             {
-                CreationDate = DateTime.Now, OwnerId = 1, RepairPrice = 9999
+                CreationDate = DateTime.Now, OwnerId = 1, RepairPrice = 9999, Id = 1
             };
             var ord2 = new Order
             {
-                CreationDate = DateTime.Now, OwnerId = 2, RepairPrice = 999
+                CreationDate = DateTime.Now, OwnerId = 2, RepairPrice = 999, Id = 2
             };
             var part1 = new Part
             {
-                ManufactureDate = DateTime.Now.AddDays(-10), Name = "Sample part"
+                ManufactureDate = DateTime.Now.AddDays(-10), Name = "Sample part", Id = 1
             };
             var part2 = new Part
             {
-                ManufactureDate = DateTime.Now.AddDays(-9), Name = "Sample part #2"
+                ManufactureDate = DateTime.Now.AddDays(-9), Name = "Sample part #2", Id = 2
             };
             var part3 = new Part
             {
-                ManufactureDate = DateTime.Now.AddDays(-8), Name = "Sample part #3"
+                ManufactureDate = DateTime.Now.AddDays(-8), Name = "Sample part #3", Id = 3
             };
             var owner1 = new Owner
             {
-                FirstName = "Vasia", LastName = "Pupkin", SecondName = "Yaroslavovych"
+                FirstName = "Vasia", LastName = "Pupkin", SecondName = "Yaroslavovych", Id = 1
             };
             var owner2 = new Owner
             {
-                FirstName = "Sample", LastName = "User", SecondName = "#2"
+                FirstName = "Sample", LastName = "User", SecondName = "#2", Id = 2
             };
             var cp1 = new ComputerParts
             {
-                PartId = 1, ComputerId = 1
+                PartId = 1, ComputerId = 1, Id = 1
             };
             var cp2 = new ComputerParts
             {
-                PartId = 1, ComputerId = 2
+                PartId = 1, ComputerId = 2, Id = 2
             };
             var cp3 = new ComputerParts
             {
-                PartId = 2, ComputerId = 1
+                PartId = 2, ComputerId = 1, Id = 3
             };
             var cp4 = new ComputerParts
             {
-                PartId = 3, ComputerId = 2
+                PartId = 3, ComputerId = 2, Id = 4
             };
             var op1 = new OrderParts
             {
-                OrderId = 1, PartId = 1
+                OrderId = 1, PartId = 1, Id = 1
             };
             var op2 = new OrderParts
             {
-                OrderId = 2, PartId = 2
+                OrderId = 2, PartId = 2, Id = 2
             };
 
             modelBuilder.Entity<Computer>().HasData(comp1, comp2);
