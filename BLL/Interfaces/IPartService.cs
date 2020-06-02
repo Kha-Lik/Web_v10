@@ -1,9 +1,9 @@
-﻿﻿using System;
+﻿using System;
 using System.Collections.Generic;
 using System.Text;
 using System.Threading.Tasks;
- using BLL.Models;
- using DAL.Entities;
+using BLL.Models;
+using DAL.Entities;
 
 namespace BLL.Interfaces
 {
@@ -15,6 +15,4 @@ namespace BLL.Interfaces
         Task<IEnumerable<PartModel>> GetByDate(DateTime date);
         Task<IEnumerable<PartModel>> GetByOrderId(int orderId);
     }
-
-    
 }

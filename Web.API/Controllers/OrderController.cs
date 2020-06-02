@@ -6,7 +6,6 @@ using Microsoft.AspNetCore.Mvc;
 
 namespace Web.API.Controllers
 {
-    
     [Produces("application/json")]
     [Route("api/[controller]")]
     [ApiController]
@@ -17,7 +16,6 @@ namespace Web.API.Controllers
         public OrderController(IOrderService orderService)
         {
             _orderService = orderService;
-
         }
 
         [HttpGet]
@@ -32,6 +30,5 @@ namespace Web.API.Controllers
             await _orderService.CreateOrderAsync(model);
             return Ok(model);
         }
-
     }
 }

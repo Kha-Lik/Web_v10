@@ -1,15 +1,15 @@
-﻿﻿using System;
+﻿using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 using AutoMapper;
- using BLL.Interfaces;
- using BLL.Models;
- using DAL.Entities;
+using BLL.Interfaces;
+using BLL.Models;
+using DAL.Entities;
 using DAL.Interfaces;
- using Microsoft.EntityFrameworkCore;
+using Microsoft.EntityFrameworkCore;
 
- namespace BLL.Services
+namespace BLL.Services
 {
     public class OrderService : IOrderService
     {
@@ -36,10 +36,11 @@ using DAL.Interfaces;
             await _unit.OrderRepository.CreateAsync(order);
             await _unit.SaveChangesAsync();
         }
-        
+
         private bool IsRepairable(IEnumerable<PartModel> partsForReplacement)
         {
-            return !partsForReplacement.Select(p => p.Name).Except(_unit.PartRepository.GetAll().Select(a => a.Name)).Any();
+            return !partsForReplacement.Select(p => p.Name).Except(_unit.PartRepository.GetAll().Select(a => a.Name))
+                .Any();
         }
     }
 }

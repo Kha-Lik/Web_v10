@@ -1,15 +1,15 @@
-﻿﻿using System;
+﻿using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 using AutoMapper;
- using BLL.Interfaces;
- using BLL.Models;
- using DAL.Entities;
- using DAL.Interfaces;
- using Microsoft.EntityFrameworkCore;
+using BLL.Interfaces;
+using BLL.Models;
+using DAL.Entities;
+using DAL.Interfaces;
+using Microsoft.EntityFrameworkCore;
 
- namespace BLL.Services
+namespace BLL.Services
 {
     public class OwnerService : IOwnerService
     {
@@ -25,7 +25,10 @@ using AutoMapper;
 
         public async Task<IEnumerable<OwnerModel>> GetAll()
         {
-            var owners = await _unit.OwnerRepository.GetAll().Include(o => o.Computers).ToListAsync();
+            var owners = await _unit.OwnerRepository.GetAll()
+                .Include(o => o.Orders)
+                .Include(o => o.Computers)
+                .ThenInclude(c => c.Parts).ToListAsync();
             return _mapper.Map<IEnumerable<OwnerModel>>(owners);
         }
 
@@ -34,8 +37,9 @@ using AutoMapper;
             var firstName = fullName.Split(' ')[1];
             var lastName = fullName.Split(' ')[0];
             var secondName = fullName.Split(' ')[2];
-            var owners = await _unit.OwnerRepository.GetAll().Where(o => o.FirstName.Equals(firstName) 
-                                       && o.LastName.Equals(lastName) && o.SecondName.Equals(secondName)).ToListAsync();
+            var owners = await _unit.OwnerRepository.GetAll().Where(o => o.FirstName.Equals(firstName)
+                                                                         && o.LastName.Equals(lastName) &&
+                                                                         o.SecondName.Equals(secondName)).ToListAsync();
             return _mapper.Map<IEnumerable<OwnerModel>>(owners);
         }
 
@@ -43,8 +47,8 @@ using AutoMapper;
         {
             var owners = await _unit.OwnerRepository.GetAll()
                 .Include(o => o.Orders)
-                .ThenInclude(ord => ord.PartsForReplacement).Where(owner => owner.Orders.Any(ord => 
-                ord.PartsForReplacement.Any(p => p.Part.Name.Equals(name)))).ToListAsync();
+                .ThenInclude(ord => ord.PartsForReplacement).Where(owner => owner.Orders.Any(ord =>
+                    ord.PartsForReplacement.Any(p => p.Part.Name.Equals(name)))).ToListAsync();
 
             return _mapper.Map<IEnumerable<OwnerModel>>(owners);
         }

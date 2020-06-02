@@ -1,4 +1,4 @@
-﻿﻿using System;
+﻿using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
@@ -8,7 +8,7 @@ using BLL.Models;
 using DAL.Interfaces;
 using Microsoft.EntityFrameworkCore;
 
- namespace BLL.Services
+namespace BLL.Services
 {
     public class PartService : IPartService
     {
@@ -44,7 +44,8 @@ using Microsoft.EntityFrameworkCore;
 
         public async Task<IEnumerable<PartModel>> GetByDate(DateTime date)
         {
-            var parts = await _unit.PartRepository.GetAll().Where(p => p.ManufactureDate.Date.Equals(date.Date)).ToListAsync();
+            var parts = await _unit.PartRepository.GetAll().Where(p => p.ManufactureDate.Date.Equals(date.Date))
+                .ToListAsync();
             return _mapper.Map<IEnumerable<PartModel>>(parts);
         }
 

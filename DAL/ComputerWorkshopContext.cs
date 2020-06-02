@@ -1,5 +1,4 @@
-﻿﻿using System;
-using System.Collections.Generic;
+﻿using System;
 using DAL.Entities;
 using Microsoft.AspNetCore.Identity.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore;
@@ -23,7 +22,7 @@ namespace DAL
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
             base.OnModelCreating(modelBuilder);
-            
+
             var comp1 = new Computer
             {
                 Name = "Sample PC", Model = "abc-123", OwnerId = 1, Id = 1

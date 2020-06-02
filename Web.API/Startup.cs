@@ -25,21 +25,18 @@ namespace Web.API
             services.AddControllers().AddNewtonsoftJson(options =>
                 options.SerializerSettings.ReferenceLoopHandling = ReferenceLoopHandling.Ignore
             );
-            services.AddDalServices(Configuration.GetConnectionString("TurnoverDbString"));
+            services.AddDalServices(Configuration.GetConnectionString("WorkshopString"));
             services.AddBllServices();
             services.AddSwaggerGen(c =>
             {
-                c.SwaggerDoc("v1", new OpenApiInfo {Title = "TurnoverWebAPI", Version = "v1"});
+                c.SwaggerDoc("v1", new OpenApiInfo {Title = "Workshop API", Version = "v1"});
             });
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
         public void Configure(IApplicationBuilder app, IWebHostEnvironment env)
         {
-            if (env.IsDevelopment())
-            {
-                app.UseDeveloperExceptionPage();
-            }
+            if (env.IsDevelopment()) app.UseDeveloperExceptionPage();
 
             app.UseSwagger();
 
@@ -48,7 +45,7 @@ namespace Web.API
                 c.SwaggerEndpoint("/swagger/v1/swagger.json", "Turnover");
                 c.RoutePrefix = string.Empty;
             });
-            
+
             app.UseHttpsRedirection();
 
             app.UseRouting();

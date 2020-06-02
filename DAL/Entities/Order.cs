@@ -4,7 +4,7 @@ using System.Collections.Generic;
 
 namespace DAL.Entities
 {
-    public class Order : BaseEntity    
+    public class Order : BaseEntity
     {
         public DateTime CreationDate { get; set; }
         public ICollection<OrderParts> PartsForReplacement { get; set; }

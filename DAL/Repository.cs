@@ -1,14 +1,14 @@
-﻿﻿using System;
+﻿using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
- using DAL.Entities;
- using DAL.Interfaces;
+using DAL.Entities;
+using DAL.Interfaces;
 
 namespace DAL
 {
-    public class Repository<TEntity> : IRepository<TEntity> where TEntity: BaseEntity
+    public class Repository<TEntity> : IRepository<TEntity> where TEntity : BaseEntity
     {
         private ComputerWorkshopContext _context;
 
@@ -35,7 +35,6 @@ namespace DAL
         public void Delete(TEntity entity)
         {
             _context.Set<TEntity>().Remove(entity);
-
         }
 
         public void Update(TEntity entity)

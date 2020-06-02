@@ -5,16 +5,17 @@ using Microsoft.AspNetCore.Identity;
 
 namespace DAL
 {
-   public class UnitOfWork : IUnitOfWork
+    public class UnitOfWork : IUnitOfWork
     {
         private readonly ComputerWorkshopContext _context;
-        public UnitOfWork(IRepository<Computer> computerRepository, 
-            IRepository<ComputerParts> computerPartsRepository, 
-            IRepository<Order> orderRepository, 
-            IRepository<Owner> ownerRepository, 
-            IRepository<Part> partRepository, 
-            ComputerWorkshopContext context, 
-            UserManager<User> userManager, 
+
+        public UnitOfWork(IRepository<Computer> computerRepository,
+            IRepository<ComputerParts> computerPartsRepository,
+            IRepository<Order> orderRepository,
+            IRepository<Owner> ownerRepository,
+            IRepository<Part> partRepository,
+            ComputerWorkshopContext context,
+            UserManager<User> userManager,
             SignInManager<User> signInManager)
         {
             ComputerRepository = computerRepository;

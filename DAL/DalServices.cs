@@ -12,7 +12,7 @@ namespace DAL
         {
             services.AddDbContext<ComputerWorkshopContext>(builder =>
                 builder.UseSqlServer(connectionString));
-            services.AddScoped(typeof(IRepository<>), 
+            services.AddScoped(typeof(IRepository<>),
                     typeof(Repository<>))
                 .AddScoped<IUnitOfWork, UnitOfWork>();
             services.AddIdentity<User, IdentityRole>(opt =>

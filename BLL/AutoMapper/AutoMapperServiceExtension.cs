@@ -1,4 +1,4 @@
-﻿﻿using AutoMapper;
+﻿using AutoMapper;
 using Microsoft.Extensions.DependencyInjection;
 
 namespace BLL.AutoMapper
@@ -9,7 +9,7 @@ namespace BLL.AutoMapper
         {
             var mapperConfig = new MapperConfiguration(c => c.AddProfile(new AutoMapperProfile()));
 
-            IMapper mapper = mapperConfig.CreateMapper();
+            var mapper = mapperConfig.CreateMapper();
 
             services.AddSingleton(mapper);
 

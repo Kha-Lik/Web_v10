@@ -1,6 +1,6 @@
-﻿﻿using System.Threading.Tasks;
- using BLL.Models;
- using Microsoft.AspNetCore.Identity;
+﻿using System.Threading.Tasks;
+using BLL.Models;
+using Microsoft.AspNetCore.Identity;
 
 namespace BLL.Interfaces
 {

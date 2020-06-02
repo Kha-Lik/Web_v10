@@ -1,9 +1,9 @@
-﻿﻿using System;
+﻿using System;
 using System.Collections.Generic;
 using System.Threading.Tasks;
- using BLL.Models;
+using BLL.Models;
 
- namespace BLL.Interfaces
+namespace BLL.Interfaces
 {
     public interface IOwnerService
     {

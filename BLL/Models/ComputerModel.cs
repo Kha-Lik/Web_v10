@@ -1,7 +1,7 @@
-﻿﻿ using System.Collections.Generic;
-  using DAL.Entities;
+﻿using System.Collections.Generic;
+using DAL.Entities;
 
-  namespace BLL.Models
+namespace BLL.Models
 {
     public class ComputerModel
     {

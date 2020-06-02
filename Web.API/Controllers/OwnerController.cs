@@ -22,14 +22,15 @@ namespace Web.API.Controllers
         [HttpGet]
         public async Task<ActionResult<IEnumerable<OwnerModel>>> GetAll()
         {
-            return Ok( await _ownerService.GetAll());
+            return Ok(await _ownerService.GetAll());
         }
 
         [HttpGet("GetByOwnerName/{name}")]
         public async Task<ActionResult<IEnumerable<OwnerModel>>> GetByFullName(string fullName)
         {
-            return Ok( await _ownerService.GetByFullName(fullName));
+            return Ok(await _ownerService.GetByFullName(fullName));
         }
+
         [HttpGet("GetByPartName/{partName}")]
         public async Task<ActionResult<IEnumerable<OwnerModel>>> GetByPartName(string partName)
         {
@@ -42,11 +43,13 @@ namespace Web.API.Controllers
         {
             return Ok(await _ownerService.GetByOrderId(id));
         }
+
         [HttpGet("GetByOrderDate/{date}")]
         public async Task<ActionResult<IEnumerable<OwnerModel>>> GetByOrderDate(DateTime date)
         {
             return Ok(await _ownerService.GetByOrderDate(date));
         }
+
         [HttpGet("GetByComputerModel/{computerName}")]
         public async Task<ActionResult<IEnumerable<OwnerModel>>> GetByComputerModel(string model)
         {

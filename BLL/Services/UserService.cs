@@ -1,9 +1,9 @@
-﻿﻿using BLL.Interfaces;
+﻿using BLL.Interfaces;
 using Microsoft.AspNetCore.Identity;
 using System.Threading.Tasks;
 using AutoMapper;
- using BLL.Models;
- using DAL.Entities;
+using BLL.Models;
+using DAL.Entities;
 using DAL.Interfaces;
 
 namespace BLL.Services
@@ -17,7 +17,7 @@ namespace BLL.Services
         public UserService(IUnitOfWork unitOfWork, IMapper mapper)
         {
             _unit = unitOfWork;
-            this._mapper = mapper;
+            _mapper = mapper;
         }
 
         public async Task<IdentityResult> Register(UserRegistrationModel model)
@@ -30,7 +30,8 @@ namespace BLL.Services
 
         public async Task<SignInResult> Login(UserLoginModel model)
         {
-            var result = await _unit.SignInManager.PasswordSignInAsync(model.Email, model.Password, model.RememberMe, false);
+            var result =
+                await _unit.SignInManager.PasswordSignInAsync(model.Email, model.Password, model.RememberMe, false);
 
             return result;
         }
